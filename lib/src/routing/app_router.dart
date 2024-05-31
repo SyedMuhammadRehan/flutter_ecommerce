@@ -2,7 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_ecommerce/src/routing/go_router_refresh_stream.dart';
 import 'package:flutter_ecommerce/src/screens/custom_profile_screen.dart';
 import 'package:flutter_ecommerce/src/screens/custom_sign_in_screen.dart';
-import 'package:flutter_ecommerce/src/screens/home_screen.dart';
+
+import 'package:flutter_ecommerce/src/screens/homepage.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,7 +24,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
     debugLogDiagnostics: true,
     redirect: (context, state) {
       final isloggedin = firebaseauth.currentUser != null;
-      print("i am in teh log $isloggedin ");
+
       if (isloggedin) {
         if (state.uri.path == '/sign-in') {
           return '/home';
